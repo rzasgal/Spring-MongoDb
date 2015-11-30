@@ -6,7 +6,7 @@ angular.module('personmodule', ['resource']).controller('indexcontroller',functi
     $scope.mode = 0;
     $scope.errorList = [];
     $scope.save = function(){
-      $scope.person.$save().then(function(response){
+      $scope.person.$insert().then(function(response){
           $scope.errorList = response.errorMessageList;
           $scope.person = new Person(response.entity);
           $scope.people = Person.query();

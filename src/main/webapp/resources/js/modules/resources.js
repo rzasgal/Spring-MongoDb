@@ -9,7 +9,8 @@ function getAsResource(baseUrl, entityName, $resource){
     var paramObject = {id:'@id'};
     var crudUrl = baseUrl+"/model/"+entityName;
     var customMethods = {
-        update: {method: 'PUT'},
+        update: {url:crudUrl, method: 'PUT'},
+        'insert':{url:crudUrl, method: 'POST'},
         'delete': {method: 'DELETE', params: {id: '@id'}},
     };
     var MainObject = $resource(crudUrl + '\/:id', paramObject, customMethods);
